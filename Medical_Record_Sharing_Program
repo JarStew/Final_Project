@@ -1,13 +1,13 @@
 from cryptography.fernet import Fernet
-
+# imports the fernet class from the crypto module
 def generate_key():
     key = Fernet.generate_key()
     with open("secret.key", "wb") as key_file:
         key_file.write(key)
-
+# generates new encryption key with fernet, saves key to secret.key in wb
 def load_key():
     return open("secret.key", "rb").read()
-
+# reads the secret.key
 def encrypt_file(file_name):
     key = load_key()
     f = Fernet(key)
@@ -16,7 +16,7 @@ def encrypt_file(file_name):
     encrypted_data = f.encrypt(file_data)
     with open(file_name + ".encrypted", "wb") as encrypted_file:
         encrypted_file.write(encrypted_data)
-
+# loads encrypt key, creates fernet object, reads file contents to be encrypted in binary mode, encrypts file contents, writes to new file
 def decrypt_file(encrypted_file_name):
     key = load_key()
     f = Fernet(key)
@@ -26,7 +26,8 @@ def decrypt_file(encrypted_file_name):
     decrypted_file_name = encrypted_file_name.replace(".encrypted", "")
     with open(decrypted_file_name, "wb") as decrypted_file:
         decrypted_file.write(decrypted_data)
-
+# loads key, creates fernet object, reads encrypted file, decrypts with same key, removed .encryption extension, rewrites original name
 # generate_key()
 encrypt_file("medical_record.txt")
 decrypt_file("medical_record.txt.encrypted")
+# encrypts medical_record.txt, creates encrypted file, decrypts file back into .txt
