@@ -8,23 +8,23 @@ def generate_key():
 def load_key():
     return open("secret.key", "rb").read()
 # reads the secret.key
-def encrypt_file(file_name):
+def encrypt_file(medical_file):
     key = load_key()
     f = Fernet(key)
-    with open(file_name, "rb") as file:
+    with open(medical_file, "rb") as file:
         file_data = file.read()
     encrypted_data = f.encrypt(file_data)
-    with open(file_name + ".encrypted", "wb") as encrypted_file:
+    with open(medical_file + ".encrypted", "wb") as encrypted_file:
         encrypted_file.write(encrypted_data)
 # loads encrypt key, creates fernet object, reads file contents to be encrypted in binary mode, encrypts file contents, writes to new file
-def decrypt_file(encrypted_file_name):
+def decrypt_file(encrypted_medical_file):
     key = load_key()
     f = Fernet(key)
-    with open(encrypted_file_name, "rb") as enc_file:
+    with open(encrypted_medical_file, "rb") as enc_file:
         encrypted_data = enc_file.read()
     decrypted_data = f.decrypt(encrypted_data)
-    decrypted_file_name = encrypted_file_name.replace(".encrypted", "")
-    with open(decrypted_file_name, "wb") as decrypted_file:
+    decrypted_medical_file = encrypted_medical_file.replace(".encrypted", "")
+    with open(decrypted_medical_file, "wb") as decrypted_file:
         decrypted_file.write(decrypted_data)
 # loads key, creates fernet object, reads encrypted file, decrypts with same key, removed .encryption extension, rewrites original name
 # generate_key()
