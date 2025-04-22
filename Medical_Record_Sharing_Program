@@ -4,9 +4,11 @@ def generate_key():
     key = Fernet.generate_key()
     with open("secret.key", "wb") as key_file:
         key_file.write(key)
+
 # generates new encryption key with fernet, saves key to secret.key in wb
 def load_key():
     return open("secret.key", "rb").read()
+
 # reads the secret.key
 def encrypt_file(medical_file):
     key = load_key()
@@ -16,6 +18,7 @@ def encrypt_file(medical_file):
     encrypted_data = f.encrypt(file_data)
     with open(medical_file + ".encrypted", "wb") as encrypted_file:
         encrypted_file.write(encrypted_data)
+
 # loads encrypt key, creates fernet object, reads file contents to be encrypted in binary mode, encrypts file contents, writes to new file
 def decrypt_file(encrypted_medical_file):
     key = load_key()
@@ -26,6 +29,7 @@ def decrypt_file(encrypted_medical_file):
     decrypted_medical_file = encrypted_medical_file.replace(".encrypted", "")
     with open(decrypted_medical_file, "wb") as decrypted_file:
         decrypted_file.write(decrypted_data)
+
 # loads key, creates fernet object, reads encrypted file, decrypts with same key, removed .encryption extension, rewrites original name
 # generate_key()
 encrypt_file("medical_record.txt")
