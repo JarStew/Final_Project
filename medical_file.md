@@ -1,5 +1,5 @@
-Patient Medical Record
-Patient Information:
+# Patient Medical Record
+## Patient Information:
 
 Full Name: Jonathan Miles Carter
 
@@ -23,7 +23,7 @@ Name: Emily Carter (Wife)
 
 Phone: (312) 555-8192
 
-Insurance Information
+# Insurance Information
 Provider: SilverCross Health Insurance
 
 Policy Number: SC-984723-IL
@@ -43,7 +43,7 @@ Penicillin
 
 Peanuts
 
-Past Surgeries:
+# Past Surgeries:
 
 Appendectomy (2009)
 
@@ -55,7 +55,7 @@ Father: Heart disease
 
 Mother: Type 2 Diabetes
 
-Current Medications
+# Current Medications
 Metformin 500mg, twice daily
 
 Lisinopril 10mg, once daily
@@ -75,7 +75,7 @@ Temperature: 98.4°F (36.9°C)
 
 Blood Glucose (Fasting): 124 mg/dL
 
-Recent Visits
+# Recent Visits
 Date: March 27, 2025
 Visit Type: Routine Checkup
 Physician: Dr. Alicia Nguyen
@@ -87,7 +87,7 @@ Recommended dietary adjustments for better glucose control.
 
 Next appointment scheduled in 3 months.
 
-Immunization Record
+# Immunization Record
 COVID-19 (Moderna) – Fully vaccinated (2021)
 
 Influenza – Annual, last dose (Oct 2024)
